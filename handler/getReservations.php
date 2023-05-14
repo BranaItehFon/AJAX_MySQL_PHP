@@ -14,7 +14,6 @@ try {
     }
 
     $userID = $_COOKIE['user_id'];
-    // $userID = 1;
 
     $res = reservation::getReservations($conn);
 

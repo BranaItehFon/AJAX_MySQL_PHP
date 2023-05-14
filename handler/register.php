@@ -15,8 +15,7 @@
         $username = $_POST["username"];
         $password = $_POST["password"];
 
-        // user::register($username, $password, $conn);
-        user::register("test", "test", $conn);
+        user::register($username, $password, $conn);
     } catch(Exception $e){
         echo $e->getMessage() . "<br/>";
             while($e = $e->getPrevious()) {

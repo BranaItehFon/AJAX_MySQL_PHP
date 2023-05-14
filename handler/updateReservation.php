@@ -18,7 +18,6 @@
             $id = $put_vars["id"];
             $numberOfDays = $put_vars["numberOfDays"];
             $res = reservation::updateReservation($conn, $id, $numberOfDays);
-            // $res = reservation::updateReservation($conn, 1, 10);
         }
     } catch(Exception $e) {
         echo $e->getMessage() . "<br/>";

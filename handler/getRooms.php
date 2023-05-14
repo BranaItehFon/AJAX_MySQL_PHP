@@ -14,7 +14,6 @@
         }
 
         $userID = $_COOKIE['user_id'];
-        // $userID = 1;
 
         $res = room::getRooms($conn);
 
@@ -25,11 +24,9 @@
             $numberOfBeds = $data['numberOfBeds'];
             $pricePerDay = $data['pricePerDay'];
             $results[] = array('id' => $id, 'numberOfBeds' => $numberOfBeds, 'pricePerDay' => $pricePerDay);
-            // $results[] = array('id' => $userID);
         }
 
         echo json_encode($results);
-        // echo $userID;
 
         
     } catch(Exception $e){

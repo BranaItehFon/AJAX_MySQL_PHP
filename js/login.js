@@ -12,17 +12,14 @@ function login() {
         },
         success: function(response){
             if(response == "null"){
-                alert("GRESKA");
+                alert("Wrong username or password");
             }
             else {
-                // const json = response;
-                // const obj = JSON.parse(json);
-                // const id = obj.id;
                 location.href="rooms.html";
             }
         },
         error: function(xhr){
-            alert("GRESKA" + xhr.status+"1");
+            alert("ERROR" + xhr.status);
         }
      });
 }
@@ -32,18 +29,14 @@ function register(){
         url: 'handler/register.php',
         type: 'post',
         data: { 
-            // "username": document.getElementById("username").value,
-            // "password": document.getElementById("password").value
-            "username": "test",
-            "password": "test"
+            "username": document.getElementById("username").value,
+            "password": document.getElementById("password").value
         },
         success: function(response){
-            alert("Sacuvano" + response);
-
+            
         },
         error: function(xhr){
-            alert("GRESKAaa" + xhr);
-            alert('f');
+            alert("ERROR" + xhr);
         }
      });
   }

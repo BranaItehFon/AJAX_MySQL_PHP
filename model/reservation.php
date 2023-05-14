@@ -22,11 +22,16 @@
             return $conn->query($q);
         }
         
+        // public static function addReservation(mysqli $conn, $date, $numberOfDays, $roomId, $userId){
+        //     $q = "INSERT INTO hotel.reservation (date, numberOfDays, roomId, userId) 
+        //           VALUES ('$date', $numberOfDays, $roomId, $userId)";
+        //     return $conn->query($q);
+        // }
         public static function addReservation(mysqli $conn, $date, $numberOfDays, $roomId, $userId){
-            $q = "INSERT INTO hotel.reservation (date, numberOfDays, roomId, userId) 
-                  VALUES ('$date', $numberOfDays, $roomId, $userId)";
+            $q = "INSERT INTO `hotel`.`reservation` (`date`, `numberOfDays`, `roomId`, `userId`) VALUES ('$date', '$numberOfDays', '$roomId', '$userId')";
             return $conn->query($q);
         }
+        
         
         public static function removeReservation(mysqli $conn, $reservationId){
             $q = "DELETE FROM hotel.reservation WHERE id = $reservationId";
