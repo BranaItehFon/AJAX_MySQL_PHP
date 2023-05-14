@@ -15,10 +15,10 @@ function login() {
                 alert("GRESKA");
             }
             else {
-                const json = response;
-                const obj = JSON.parse(json);
-                const id = obj.id;
-                location.href="friend-wall.html";
+                // const json = response;
+                // const obj = JSON.parse(json);
+                // const id = obj.id;
+                location.href="rooms.html";
             }
         },
         error: function(xhr){

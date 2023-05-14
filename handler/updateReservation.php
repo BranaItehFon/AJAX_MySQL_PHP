@@ -16,9 +16,9 @@
         if ($_SERVER["REQUEST_METHOD"] === "PUT") {
             parse_str(file_get_contents("php://input"), $put_vars);
             $id = $put_vars["id"];
-            $date = $put_vars["date"];
             $numberOfDays = $put_vars["numberOfDays"];
-            $res = reservation::updateReservation($conn, $id, $date, $numberOfDays);
+            $res = reservation::updateReservation($conn, $id, $numberOfDays);
+            // $res = reservation::updateReservation($conn, 1, 10);
         }
     } catch(Exception $e) {
         echo $e->getMessage() . "<br/>";
