@@ -24,7 +24,9 @@ try {
         $id = $data['id'];
         $date = $data['date'];
         $numberOfDays = $data['numberOfDays'];
-        $results[] = array('id' => $id, 'date' => $date, 'numberOfDays' => $numberOfDays);
+        $pricePerDay = $data['pricePerDay'];
+        $username = $data['username'];
+        $results[] = array('id' => $id, 'date' => $date, 'numberOfDays' => $numberOfDays, 'pricePerDay' => $pricePerDay, 'username' => $username);
     }
 
     echo json_encode($results);

@@ -1,22 +1,22 @@
-function createReservation(id){
-    let date = document.getElementById("date").value;
-    let numberOfDays = document.getElementById("numberOfDays").value;
-    $.ajax({
-        url: 'handler/addReservation.php',
-        type: 'post',
-        data: {
-            "date": date,
-            "numberOfDays": numberOfDays,
-            "roomId": id
-        },
-        success: function(response){
+// function createReservation(id){
+//     let date = document.getElementById("date").value;
+//     let numberOfDays = document.getElementById("numberOfDays").value;
+//     $.ajax({
+//         url: 'handler/addReservation.php',
+//         type: 'post',
+//         data: {
+//             "date": date,
+//             "numberOfDays": numberOfDays,
+//             "roomId": id
+//         },
+//         success: function(response){
             
-        },
-        error: function(xhr){
-            alert("GRESKA" + xhr);
-        }
-     });
-}
+//         },
+//         error: function(xhr){
+//             alert("GRESKA" + xhr);
+//         }
+//      });
+// }
 
 function deleteReservation(id){
     $.ajax({
@@ -72,7 +72,9 @@ window.onload = function getAllReservations(){
                 const id = data[i].id;
                 const date = data[i].date;
                 const numberOfDays = data[i].numberOfDays;
-                displayReservation(id, date, numberOfDays);
+                const pricePerDay = data[i].pricePerDay;
+                const username = data[i].username;
+                displayReservation(id, date, numberOfDays, username, pricePerDay*numberOfDays);
                 // insertPostContainer(id, title, content, grade);
                 // console.log();
             }
@@ -83,7 +85,7 @@ window.onload = function getAllReservations(){
      });
 }
 
-function displayReservation(id, date, numberOfDays){
+function displayReservation(id, date, numberOfDays, username, price){
     const roomContainer = document.createElement('div');
     roomContainer.classList.add('room');
     
@@ -100,6 +102,12 @@ function displayReservation(id, date, numberOfDays){
 
     const dateArrival = document.createElement('p');
     dateArrival.textContent = "Date: " + date;
+
+    const guestName = document.createElement('p');
+    guestName.textContent = "Guest: " + username;
+
+    const priceSum = document.createElement('p');
+    priceSum.textContent = "Price: " + price;
 
     const deleteButton = document.createElement('button');
     deleteButton.textContent = 'Delete reservation';
@@ -141,6 +149,8 @@ function displayReservation(id, date, numberOfDays){
     // roomContainer.appendChild(price);
     roomContainer.appendChild(days);
     roomContainer.appendChild(dateArrival);
+    roomContainer.appendChild(priceSum);
+    roomContainer.appendChild(guestName);
     roomContainer.appendChild(updateButton);
     roomContainer.appendChild(deleteButton);
     

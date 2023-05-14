@@ -72,6 +72,7 @@ function displayRoom(id, numberOfBeds, pricePerDay){
     addBtn.textContent = 'Make reservation';
     addBtn.classList.add('btn');
     addBtn.setAttribute('onclick', `createReservation(${id})`);
+    // addBtn.setAttribute('onclick', `console.log(${id})`);
     
     roomContainer.appendChild(beds);
     roomContainer.appendChild(price);
